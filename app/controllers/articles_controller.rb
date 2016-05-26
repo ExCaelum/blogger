@@ -38,6 +38,9 @@ class ArticlesController < ActionController::Base
 
   def destroy
     @article = Article.find(params[:id])
+    # @article.comments.each do |comment|
+    #   comment.destroy
+    # end
     @article.destroy
     flash.notice = "Article '#{@article.title}' Deleted!"
     redirect_to articles_path
