@@ -1,5 +1,5 @@
 class ArticlesController < ActionController::Base
-  include ApplicationHelper
+  include ArticlesHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -38,7 +38,7 @@ class ArticlesController < ActionController::Base
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroyc
+    @article.destroy
     flash.notice = "Article '#{@article.title}' Deleted!"
     redirect_to articles_path
   end
